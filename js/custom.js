@@ -15,4 +15,15 @@ $(function () {
       disableOnInteraction: false,
     },
   });
+
+  $(".info_btn_box .info_btn>a").on("click", function (e) {
+    e.preventDefault();
+    const idx = $(this).index();
+    $(".info_table_wrap .info_left_table")
+      .eq(idx)
+      .addClass("on")
+      .siblings()
+      .removeClass("on");
+    $(this).addClass("on").siblings().removeClass("on");
+  });
 });
