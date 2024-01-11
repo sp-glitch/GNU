@@ -30,6 +30,33 @@
     gap: 40px;
 }
 
+#header .gnb>ul>li {
+    position: relative;
+}
+
+#header .gnb>ul>li .sub {
+    position: absolute;
+    top: 80px;
+    left: 50%;
+    z-index: 999;
+
+    display: none;
+
+    min-width: 150px;
+    transform: translate(-50%, 0);
+    padding: 0 24px;
+    background: tomato;
+
+}
+
+#header .gnb>ul>li:hover .sub {
+    display: block;
+}
+
+#header .gnb .sub a {
+    line-height: 40px;
+}
+
 #header .gnb>ul>li>a {
     display: block;
     line-height: 90px;
@@ -38,33 +65,24 @@
     white-space: nowrap;
 }
 
-#header .gnb>ul>li.on>a {
-    color: tomato;
-}
-
 #header .mopen {
     display: none;
 }
 
-.sub_page {
-    background: #333;
-    color: #fff;
-    font-size: 80px;
-    font-weight: 900;
-
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
-
-    height: 300px;
-}
-
 @media (max-width:768px) {
     #header h1 {
+        flex: 1 0 320px;
+        /* r */
         flex: 1 0 290px;
     }
 
+    #header .inner {
+        display: flex;
+    }
+
     #header .gnb {
+        margin: 0 0 0 auto;
+        /* r */
         position: fixed;
         top: 0;
         left: -100%;
@@ -77,22 +95,65 @@
         transition: left 0.5s;
     }
 
+    /* r */
     #header .gnb.on {
         left: 0;
     }
 
     #header .gnb>ul {
+        display: flex;
+        gap: 40px;
+
+        /* r */
         flex-direction: column;
         gap: 0;
     }
 
+    #header .gnb>ul>li {
+        position: relative;
+    }
+
+    #header .gnb>ul>li .sub {
+        position: absolute;
+        top: 80px;
+        left: 50%;
+        z-index: 999;
+
+        display: none;
+
+        min-width: 150px;
+        transform: translate(-50%, 0);
+        padding: 0 24px;
+        background: tomato;
+
+        /* r */
+        position: static;
+        transform: translate(0, 0);
+
+    }
+
+    #header .gnb>ul>li:hover .sub {
+        /* r */
+        display: none;
+    }
+
+    #header .gnb .sub a {
+        line-height: 40px;
+    }
+
     #header .gnb>ul>li>a {
+        display: block;
+        line-height: 90px;
+        font-size: 18px;
+        font-weight: 500;
+        white-space: nowrap;
+        /* r */
         color: #fff;
         line-height: 40px;
         border-bottom: 1px solid #666;
     }
 
-
+    /* r */
     #header .mopen {
         display: block;
 
@@ -102,13 +163,13 @@
         z-index: 999;
     }
 
-
+    /* r */
     #header .mopen button {
         border: none;
         background: transparent;
     }
 
-
+    /* r */
     #header .mopen span {
         background: #f2f2f2;
         padding: 3px;
@@ -153,10 +214,16 @@
 
 @media (max-width: 768px) {
     .main_visual .main_visual_content {
+        position: relative;
+        height: 600px;
+        background: url(../images/main_slider01.jpg) no-repeat 80% top/cover;
+
+        /* r */
         background: url(../images/main_slider01.jpg) no-repeat 80% top/cover;
 
     }
 
+    /* r */
     .main_visual .main_visual_content::before {
         content: "";
         position: absolute;
@@ -165,20 +232,42 @@
     }
 
     .main_visual .main_visual_content .content {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        max-width: 1200px;
+        width: 100%;
+        padding: 0 15px;
+
+        /* r */
         top: calc(50% + 100px);
     }
 
     .main_visual .main_visual_content .content h3 {
+        font-size: 80px;
+        font-weight: 800;
+        margin: 0 0 16px 0;
+
+        /* r */
         white-space: nowrap;
         font-size: 8vw;
     }
 
     .main_visual .main_visual_content .content strong {
+        display: block;
+        font-size: 20px;
+        font-weight: 600;
+        margin: 0 0 14px 0;
+
+        /* r */
         white-space: nowrap;
         font-size: 4vw;
     }
 
-
+    .main_visual .main_visual_content .content p {
+        line-height: 20px;
+    }
 }
 
 .main_content {
@@ -233,22 +322,67 @@
 }
 
 @media (max-width: 768px) {
+    .main_content {
+        padding: 80px 0;
+        background: linear-gradient(transparent 50%, #f9f9f9 50%);
+    }
+
     .main_content .inner {
+        display: flex;
+        gap: 30px;
+        /* r */
         flex-direction: column;
     }
 
+    .main_content .inner .itm {
+        position: relative;
+        flex: 1;
+    }
+
+    .main_content .inner .img_box {
+        margin: 0 0 20px 0;
+        border-radius: 40px 0;
+        overflow: hidden;
+    }
+
+    .main_content .inner .tit {
+        margin: 0 0 14px 0;
+        font-size: 18px;
+        font-weight: 500;
+    }
+
     .main_content .inner .desc {
+        word-break: keep-all;
+        line-height: 18px;
+        font-size: 14px;
+        /* r */
         margin: 0 0 16px 0;
     }
 
     .main_content .inner .lnk {
+        position: absolute;
+        top: 190px;
+        right: 30px;
+
+        width: 80px;
+        height: 80px;
+        background: #333;
+        color: #fff;
+
+        text-align: center;
+        line-height: 1;
+        border-radius: 50%;
+
+        font-size: 12px;
+        text-transform: uppercase;
+
+        /* r */
         position: static;
         display: inline-block;
         padding: 16px 24px;
         border-radius: 4px;
         width: auto;
         height: auto;
-        line-height: 1;
     }
 }
 
@@ -289,14 +423,47 @@
 }
 
 @media (max-width: 768px) {
+    #footer {
+        padding: 40px 0 60px 0;
+        border-top: 1px solid #ddd;
+    }
+
     #footer .customer {
+        display: flex;
+        justify-content: center;
+        gap: 30px;
+        margin: 0 0 8px 0;
+
+        /* r */
         flex-direction: column;
         gap: 8px;
         align-items: center;
     }
 
+    #footer .customer>li {
+        position: relative;
+    }
+
     #footer .customer>li~li::after {
+        content: "";
+        position: absolute;
+        top: calc(50% - 2px);
+        left: -17px;
+        width: 4px;
+        height: 4px;
+        background: #ddd;
+        border-radius: 50%;
+
+        /* r */
         display: none;
     }
 
+    #footer .add {
+        text-align: center;
+        margin: 0 0 8px 0;
+    }
+
+    #footer .copy {
+        text-align: center;
+    }
 }
